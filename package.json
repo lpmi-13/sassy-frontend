@@ -1,8 +1,8 @@
 {
-  "name": "dataproduct",
-  "version": "0.1.0",
-  "description": "My Data Product",
-  "author": "MG",
+  "name": "totallyserioussaasbusiness",
+  "version": "0.2.0",
+  "description": "The Sassy Frontend",
+  "author": "Adam",
   "license": "MIT",
   "private": true,
   "dependencies": {
