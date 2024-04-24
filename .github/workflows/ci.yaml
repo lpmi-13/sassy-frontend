@@ -36,4 +36,4 @@ jobs:
 
       - name: Upload build artifacts to S3
         run: |
-          aws s3 sync build/ s3://${{ secrets.BUCKET_NAME }}
+          aws s3 sync --delete build/ s3://${{ secrets.BUCKET_NAME }}
