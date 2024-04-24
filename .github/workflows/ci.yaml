@@ -27,9 +27,9 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: ${{ env.REGION }}
-          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+          aws-region: ${{ secret.REGION }}
+          role-to-assume: ${{ secret.ROLE_TO_ASSUME }}
 
       - name: Upload build artifacts to S3
         run: |
-          aws s3 sync build/ s3://${{ env.BUCKET_NAME }}
+          aws s3 sync build/ s3://${{ secret.BUCKET_NAME }}
