@@ -10,15 +10,6 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 
 
-const NotFound = () => {
-  return (
-    <div style={{ textAlign: 'center', marginTop: '20vh' }}>
-      <h3>404 - Not found</h3>
-    </div>
-    );
-};
-
-
 const App = (): JSX.Element => {
   const [mode, setMode] = useState('light');
   const colorMode = useMemo(
@@ -58,7 +49,7 @@ const App = (): JSX.Element => {
             <Layout>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<Home />} />
               </Routes>
             </Layout>
           </BrowserRouter>

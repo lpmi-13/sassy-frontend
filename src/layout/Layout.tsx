@@ -49,6 +49,8 @@ const Layout = ({ children }: Props): JSX.Element => {
     });
   };
 
+  const featureFlagged = Boolean(process.env.REACT_APP_FEATURE_FLAG_HIDE)
+
   return (
     <Box
       id='page-top'
@@ -58,7 +60,7 @@ const Layout = ({ children }: Props): JSX.Element => {
       }}
     >
       <Header onSidebarOpen={handleSidebarOpen} />
-      <Sidebar onClose={handleSidebarClose} open={open} />
+      {!featureFlagged && <Sidebar onClose={handleSidebarClose} open={open} />}
       <Box width={1} margin='0 auto'>
         {children}
       </Box>
