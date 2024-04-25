@@ -98,7 +98,7 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
               )}
             </IconButton>
           </Box>
-          <Box
+          {!featureFlagged && <Box
             sx={{
               display: { md: 'block', lg: 'none' },
             }}
@@ -124,7 +124,7 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
                 }}
               />
             </Button>
-          </Box>
+          </Box>}
         </Toolbar>
       </AppBar>
     </>
