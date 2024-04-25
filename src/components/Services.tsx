@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -18,27 +17,7 @@ interface ServicesProps {
 const Services = (): JSX.Element => {
   const theme = useTheme();
 
-  const [services, setServices] = useState<ServicesProps[]>([]);
-
-  const fetchServices = () => {
-    const baseUrl = process.env.REACT_APP_BASE_URL;
-    const endpoint = 'services';
-
-    axios
-      .get<ServicesProps[]>(`${baseUrl}${endpoint}`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    fetchServices();
-  }, []);
+  const [services, ] = useState<ServicesProps[]>([]);
 
   return (
     <div id='services'>
