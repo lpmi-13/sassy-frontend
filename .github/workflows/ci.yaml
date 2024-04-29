@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # we need these for the OIDC authentication to AWS
     permissions:
       id-token: write
       contents: read
