@@ -1,16 +1,24 @@
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import CustomButton from './CustomButton';
 
-import { SaasInfo } from '../pages/Home'
+import { SaasInfo } from '../pages/Home';
 
-let USDollar = new Intl.NumberFormat('en-US', {
+const USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-})
+});
 
-const Saas: React.FC<SaasInfo> = ({ name, type, revenue }): JSX.Element => {
-    const theme = useTheme()
+// const BASE_URL = 'https://mytotallyserioussaasbusiness.com/api/saas/'
+
+const SaasSnippet: React.FC<SaasInfo> = ({
+    id,
+    name,
+    type,
+    revenue,
+}): JSX.Element => {
+    const theme = useTheme();
 
     return (
         <div id="saas">
@@ -34,7 +42,10 @@ const Saas: React.FC<SaasInfo> = ({ name, type, revenue }): JSX.Element => {
                             textTransform: 'uppercase',
                         }}
                     >
-                        Saas Name: {name}
+                        <CustomButton
+                            href={`/saas/${id.toString()}`}
+                            text={`Saas Name: ${name}`}
+                        />
                     </Typography>
                     <Typography
                         variant="subtitle1"
@@ -58,7 +69,7 @@ const Saas: React.FC<SaasInfo> = ({ name, type, revenue }): JSX.Element => {
                 </Box>
             </Box>
         </div>
-    )
-}
+    );
+};
 
-export default Saas
+export default SaasSnippet;

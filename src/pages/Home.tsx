@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import Services from '../components/Services'
 import Pricing from '../components/Pricing'
 import About from '../components/About'
-import Saas from '../components/Saas'
+import SaasSnippet from '../components/SaasSnippet'
 
 export interface SaasInfo {
     employeeNumber?: string
     founder?: string
     funding?: number
-    id?: number
+    id: number
     mau?: number
     name: string
     revenue: number
@@ -37,8 +37,9 @@ const Home = (): JSX.Element => {
             <Services />
             {saasData.map((item) => {
                 return (
-                    <Saas
+                    <SaasSnippet
                         key={item.name}
+                        id={item.id}
                         name={item.name}
                         type={item.type}
                         revenue={item.revenue}
