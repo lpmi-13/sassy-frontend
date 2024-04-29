@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from '@mui/material/styles';
 
 const Services = (): JSX.Element => {
-    const theme = useTheme();
+  const theme = useTheme();
   return (
           <Container
             maxWidth='md'
