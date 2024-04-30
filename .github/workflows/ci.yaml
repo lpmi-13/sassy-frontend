@@ -42,3 +42,9 @@ jobs:
       - name: Upload build artifacts to S3
         run: |
           aws s3 sync --delete build/ s3://${{ secrets.BUCKET_NAME }}
+
+      # this is a blunt instrument, and we should probably just not cache the index.html,
+      # but this will work for now
+      - name: Invalidate the cloudfront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
