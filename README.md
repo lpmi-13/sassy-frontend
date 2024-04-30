@@ -8,7 +8,7 @@ The site currently pulls in totally amazing data on other Saas businesses and le
 
 Paired with the [Sassy-backend](https://github.com/lpmi-13/sassy-backend), this repo contributes the frontend component of the entire Saas architecture.
 
-![architecture diagram](sassy-architecture.svg)
+![architecture diagram](sassy-architecture.png)
 
 ## local dev
 
