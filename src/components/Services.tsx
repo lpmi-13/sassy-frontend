@@ -1,23 +1,23 @@
-import { useState } from 'react'
-import Avatar from '@mui/material/Avatar'
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-import Icon from '@mui/material/Icon'
-import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
+import { useState } from 'react';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 interface ServicesProps {
-    title: string
-    description: string
-    icon: string
+    title: string;
+    description: string;
+    icon: string;
 }
 
 const Services = (): JSX.Element => {
-    const theme = useTheme()
+    const theme = useTheme();
 
-    const [services] = useState<ServicesProps[]>([])
+    const [services] = useState<ServicesProps[]>([]);
 
     return (
         <div id="services">
@@ -45,10 +45,17 @@ const Services = (): JSX.Element => {
                     </Typography>
                     <Typography
                         variant="subtitle1"
-                        align="center"
                         marginTop={theme.spacing(1)}
                         gutterBottom
                         color={theme.palette.text.secondary}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            width: '60%',
+                            margin: '0 20%',
+                        }}
                     >
                         No fuss, no muss...just Saas straight to ya! Check out
                         the totally real and not at all randomly generated Saas
@@ -104,7 +111,7 @@ const Services = (): JSX.Element => {
                 </Container>
             </Box>
         </div>
-    )
-}
+    );
+};
 
-export default Services
+export default Services;

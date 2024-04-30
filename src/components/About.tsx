@@ -1,48 +1,63 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 const About = (): JSX.Element => {
-  const theme = useTheme();
+    const theme = useTheme();
 
-  return (
-    <div id='about'>
-      <Box
-        sx={{
-          pt: 5,
-          pb: 12,
-          px: 2,
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
-        <Box marginBottom={4}>
-          <Typography
-            variant='h5'
-            align='center'
-            color={theme.palette.text.primary}
-            fontWeight={700}
-            marginTop={theme.spacing(1)}
-            gutterBottom
-            sx={{
-              textTransform: 'uppercase',
-              mb: 2,
-            }}
-          >
-            About
-          </Typography>
-          <Typography
-            variant='subtitle1'
-            align='center'
-            color={theme.palette.text.secondary}
-            marginTop={theme.spacing(1)}
-            gutterBottom
-          >
-            This is some serious Saas
-          </Typography>
-        </Box>
-      </Box>
-    </div>
-  );
+    return (
+        <div id="about">
+            <Box
+                sx={{
+                    pt: 5,
+                    pb: 12,
+                    px: 2,
+                    backgroundColor: theme.palette.background.default,
+                }}
+            >
+                <Box marginBottom={4}>
+                    <Typography
+                        variant="h5"
+                        align="center"
+                        color={theme.palette.text.primary}
+                        fontWeight={700}
+                        marginTop={theme.spacing(1)}
+                        gutterBottom
+                        sx={{
+                            textTransform: 'uppercase',
+                            mb: 2,
+                        }}
+                    >
+                        About
+                    </Typography>
+                    <Typography
+                        variant="subtitle1"
+                        align="center"
+                        color={theme.palette.text.secondary}
+                        marginTop={theme.spacing(1)}
+                        gutterBottom
+                    >
+                        This is some serious Saas
+                    </Typography>
+                </Box>
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        alignItems: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        marginTop: '5em',
+                    }}
+                >
+                    <img
+                        src="/images/sassy-architecture.png"
+                        alt="the totally serious architecture"
+                    />
+                </Container>
+            </Box>
+        </div>
+    );
 };
 
 export default About;
