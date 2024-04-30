@@ -12,7 +12,9 @@ Paired with the [Sassy-backend](https://github.com/lpmi-13/sassy-backend), this 
 
 ## local dev
 
+```sh
 npm i && npm start
+```
 
 ## deployments
 
