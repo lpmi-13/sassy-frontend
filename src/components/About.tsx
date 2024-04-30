@@ -2,6 +2,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+
+const FRONTEND_SOURCE_CODE_URL = 'https://github.com/lpmi-13/sassy-frontend';
+const BACKEND_SOURCE_CODE_URL = 'https://github.com/lpmi-13/sassy-backend';
 
 const About = (): JSX.Element => {
     const theme = useTheme();
@@ -59,6 +63,30 @@ const About = (): JSX.Element => {
                         alt="the totally serious architecture"
                         style={{ maxWidth: '100%' }}
                     />
+                </Container>
+                <Container
+                    sx={{
+                        marginBottom: '2em',
+                        marginTop: '2em',
+                        textAlign: 'center',
+                        fontSize: '1.3rem',
+                    }}
+                >
+                    <Link to={FRONTEND_SOURCE_CODE_URL}>
+                        frontend source code on GitHub
+                    </Link>
+                </Container>
+                <Container
+                    sx={{
+                        marginBottom: '2em',
+                        marginTop: '2em',
+                        textAlign: 'center',
+                        fontSize: '1.3rem',
+                    }}
+                >
+                    <Link to={BACKEND_SOURCE_CODE_URL}>
+                        backend source code on GitHub
+                    </Link>
                 </Container>
             </Box>
         </div>
