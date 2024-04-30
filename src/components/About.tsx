@@ -53,18 +53,11 @@ const About = (): JSX.Element => {
                         business is GOOD!
                     </Typography>
                 </Box>
-                <Container
-                    maxWidth="md"
-                    sx={{
-                        alignItems: 'center',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginTop: '5em',
-                    }}
-                >
+                <Container>
                     <img
                         src="/images/sassy-architecture.png"
                         alt="the totally serious architecture"
+                        style={{ maxWidth: '100%' }}
                     />
                 </Container>
             </Box>
