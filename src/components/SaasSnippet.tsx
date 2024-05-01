@@ -3,16 +3,16 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import CustomButton from './CustomButton';
 
-import { SaasInfo } from '../pages/Home';
+import { USDollar } from '../utils/Currency';
 
-const USDollar = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
+interface SaasDetails {
+    id: number;
+    name: string;
+    type: string;
+    revenue: number;
+}
 
-// const BASE_URL = 'https://mytotallyserioussaasbusiness.com/api/saas/'
-
-const SaasSnippet: React.FC<SaasInfo> = ({
+const SaasSnippet: React.FC<SaasDetails> = ({
     id,
     name,
     type,

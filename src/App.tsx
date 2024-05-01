@@ -10,7 +10,7 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Pricing from './pages/Pricing';
-// import SaasBusiness from './pages/SaasBusiness';
+import SaasBusiness from './pages/SaasBusiness';
 
 const App = (): JSX.Element => {
     const [mode, setMode] = useState('light');
@@ -52,7 +52,10 @@ const App = (): JSX.Element => {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/about" element={<About />} />
                                 <Route path="/pricing" element={<Pricing />} />
-                                {/* // <Route path="/saas/" */}
+                                <Route
+                                    path="/saas/:id"
+                                    element={<SaasBusiness />}
+                                />
                                 <Route path="*" element={<Home />} />
                             </Routes>
                         </Layout>
