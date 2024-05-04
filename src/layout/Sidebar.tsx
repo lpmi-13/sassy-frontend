@@ -55,7 +55,7 @@ const Sidebar = ({ open, onClose }: Props): JSX.Element => {
                         <Box paddingY={2}>
                             <CustomButton href={'/'} text="Home" />
                         </Box>
-                        <Box padding={2}>
+                        <Box paddingY={2}>
                             <CustomButtonWithReload
                                 href={'/api/saas'}
                                 text="API"
