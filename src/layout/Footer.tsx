@@ -1,9 +1,9 @@
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 const Footer = (): JSX.Element => {
-    const theme = useTheme()
+    const theme = useTheme();
 
     return (
         <Grid
@@ -22,7 +22,7 @@ const Footer = (): JSX.Element => {
                 Copyright &copy; {new Date().getFullYear()}.{' '}
             </Typography>
         </Grid>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

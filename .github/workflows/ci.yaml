@@ -1,50 +1,50 @@
 name: Deploy to S3
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - src/**
-      - public/**
-      - package.json
+    push:
+        branches:
+            - main
+        paths:
+            - src/**
+            - public/**
+            - package.json
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    # we need these for the OIDC authentication to AWS
-    permissions:
-      id-token: write
-      contents: read
+    deploy:
+        runs-on: ubuntu-latest
+        # we need these for the OIDC authentication to AWS
+        permissions:
+            id-token: write
+            contents: read
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build React project
-        # we want to hide some stuff for now
-        run: REACT_APP_FEATURE_FLAG_HIDE=true npm run build
+            - name: Build React project
+              # we want to hide some stuff for now
+              run: REACT_APP_FEATURE_FLAG_HIDE=true npm run build
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: ${{ secrets.REGION }}
-          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-region: ${{ secrets.REGION }}
+                  role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
 
-      - name: Upload build artifacts to S3
-        run: |
-          aws s3 sync build/ s3://${{ secrets.BUCKET_NAME }}
+            - name: Upload build artifacts to S3
+              run: |
+                  aws s3 sync build/ s3://${{ secrets.BUCKET_NAME }}
 
-      # this is a blunt instrument, and we should probably just not cache the index.html,
-      # but this will work for now
-      - name: Invalidate the cloudfront cache
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+            # this is a blunt instrument, and we should probably just not cache the index.html,
+            # but this will work for now
+            - name: Invalidate the cloudfront cache
+              run: |
+                  aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

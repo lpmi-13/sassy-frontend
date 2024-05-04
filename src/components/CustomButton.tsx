@@ -1,14 +1,14 @@
-import Button from '@mui/material/Button'
-import { useTheme } from '@mui/material/styles'
-import { Link } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 interface Props {
-    href: string
-    text: string
+    href: string;
+    text: string;
 }
 
 const CustomButton = ({ href, text }: Props): JSX.Element => {
-    const theme = useTheme()
+    const theme = useTheme();
 
     return (
         <Link to={href}>
@@ -38,7 +38,7 @@ const CustomButton = ({ href, text }: Props): JSX.Element => {
                 {text}
             </Button>
         </Link>
-    )
-}
+    );
+};
 
-export default CustomButton
+export default CustomButton;
