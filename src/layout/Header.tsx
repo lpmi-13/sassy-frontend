@@ -1,32 +1,32 @@
-import { useContext } from 'react'
-import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
-import IconButton from '@mui/material/IconButton'
-import Link from '@mui/material/Link'
-import Toolbar from '@mui/material/Toolbar'
-import Tooltip from '@mui/material/Tooltip'
-import Typography from '@mui/material/Typography'
-import DarkModeIcon from '@mui/icons-material/DarkMode'
-import LightModeIcon from '@mui/icons-material/LightMode'
-import MenuIcon from '@mui/icons-material/Menu'
-import { alpha, useTheme } from '@mui/material/styles'
+import { useContext } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
+import Toolbar from '@mui/material/Toolbar';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import MenuIcon from '@mui/icons-material/Menu';
+import { alpha, useTheme } from '@mui/material/styles';
 
-import CustomButton from '../components/CustomButton'
-import ColorModeContext from '../utils/ColorModeContext'
+import CustomButton from '../components/CustomButton';
+import ColorModeContext from '../utils/ColorModeContext';
 
 interface Props {
-    onSidebarOpen: () => void
+    onSidebarOpen: () => void;
 }
 
 const Header = ({ onSidebarOpen }: Props): JSX.Element => {
     // we'll make these more granular later
-    const featureFlagged = Boolean(process.env.REACT_APP_FEATURE_FLAG_HIDE)
-    const signupUrl = process.env.REACT_APP_SIGNUP_URL
-    const signinUrl = process.env.REACT_APP_SIGNIN_URL
-    const theme = useTheme()
-    const colorMode = useContext(ColorModeContext)
+    const featureFlagged = Boolean(process.env.REACT_APP_FEATURE_FLAG_HIDE);
+    const signupUrl = process.env.REACT_APP_SIGNUP_URL;
+    const signinUrl = process.env.REACT_APP_SIGNIN_URL;
+    const theme = useTheme();
+    const colorMode = useContext(ColorModeContext);
 
     return (
         <>
@@ -71,6 +71,7 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
                         }}
                     >
                         <CustomButton href={'/'} text="Home" />
+                        <CustomButton href="/api/sass" text="API" />
                         <CustomButton href={'/about'} text="About" />
                         <CustomButton href={'/pricing'} text="Pricing" />
                         {!featureFlagged && (
@@ -142,7 +143,7 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
                 </Toolbar>
             </AppBar>
         </>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

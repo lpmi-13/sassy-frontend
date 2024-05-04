@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom'
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
+import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
-import CustomButton from '../components/CustomButton'
+import CustomButton from '../components/CustomButton';
 
 interface Props {
-    onClose: () => void
-    open: boolean
+    onClose: () => void;
+    open: boolean;
 }
 
 const Sidebar = ({ open, onClose }: Props): JSX.Element => {
-    const theme = useTheme()
+    const theme = useTheme();
 
     return (
         <>
@@ -55,6 +55,9 @@ const Sidebar = ({ open, onClose }: Props): JSX.Element => {
                             <CustomButton href={'/'} text="Home" />
                         </Box>
                         <Box paddingY={2}>
+                            <CustomButton href={'/api/saas'} text="API" />
+                        </Box>
+                        <Box paddingY={2}>
                             <CustomButton href={'/about'} text="About" />
                         </Box>
                         <Box paddingY={2}>
@@ -64,7 +67,7 @@ const Sidebar = ({ open, onClose }: Props): JSX.Element => {
                 </Box>
             </Drawer>
         </>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;
