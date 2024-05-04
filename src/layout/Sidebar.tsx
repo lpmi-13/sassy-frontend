@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 import CustomButton from '../components/CustomButton';
+import CustomButtonWithReload from '../components/CustomButtonWithReload';
 
 interface Props {
     onClose: () => void;
@@ -53,6 +54,12 @@ const Sidebar = ({ open, onClose }: Props): JSX.Element => {
                     <Box padding={2}>
                         <Box paddingY={2}>
                             <CustomButton href={'/'} text="Home" />
+                        </Box>
+                        <Box padding={2}>
+                            <CustomButtonWithReload
+                                href={'/api/saas'}
+                                text="API"
+                            />
                         </Box>
                         <Box paddingY={2}>
                             <CustomButton href={'/about'} text="About" />
