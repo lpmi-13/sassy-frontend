@@ -71,9 +71,6 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
                         }}
                     >
                         <CustomButton href={'/'} text="Home" />
-                        {!featureFlagged && (
-                            <CustomButton href={'/api/sass'} text="API" />
-                        )}
                         <CustomButton href={'/about'} text="About" />
                         <CustomButton href={'/pricing'} text="Pricing" />
                         {!featureFlagged && (
