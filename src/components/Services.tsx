@@ -59,7 +59,7 @@ const Services = (): JSX.Element => {
                     >
                         No fuss, no muss...just Saas straight to ya! Check out
                         the totally real and not at all randomly generated Saas
-                        business below, and click on one for more info!
+                        businesses below, and click a name for more info!
                     </Typography>
                 </Box>
                 <Container>
