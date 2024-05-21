@@ -8,18 +8,21 @@ import { useTheme } from '@mui/material/styles';
 import { SaasInfo } from './Home';
 import { USDollar } from '../utils/Currency';
 
+import { data } from './Home';
+
 export interface OneSaas {
     id?: number;
 }
 
 // duplicated from Home page, but we can refactor at some point
-async function getSaasInfoById(id: number): Promise<SaasInfo> {
-    const response = await fetch(
-        `https://mytotallyserioussaasbusiness.com/api/saas/${id}`
-    );
-    const data = await response.json();
-    return data;
-}
+// async function getSaasInfoById(id: number): Promise<SaasInfo> {
+// see note in Home.tsx
+// const response = await fetch(
+// `https://mytotallyserioussaasbusiness.com/api/saas/${id}`
+// );
+// const data = await response.json();
+// return data;
+// }
 
 const SaasBusiness: React.FC<OneSaas> = (): JSX.Element => {
     const theme = useTheme();
@@ -28,7 +31,14 @@ const SaasBusiness: React.FC<OneSaas> = (): JSX.Element => {
     const [saasData, setSaasData] = useState<SaasInfo>();
 
     useEffect(() => {
-        getSaasInfoById(Number(id)).then((data) => setSaasData(data));
+        if (id !== undefined && Number(id) <= 10) {
+            const individualSaas = data.results.filter(
+                (item) => item.id === Number(id)
+            );
+            setSaasData(individualSaas[0]);
+        } else {
+            setSaasData(data.results[0]);
+        }
     }, [id]);
 
     const revenueAmount =

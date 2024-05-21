@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import CustomButton from '../components/CustomButton';
-import CustomButtonWithReload from '../components/CustomButtonWithReload';
+// import CustomButtonWithReload from '../components/CustomButtonWithReload';
 import ColorModeContext from '../utils/ColorModeContext';
 
 interface Props {
@@ -72,7 +72,8 @@ const Header = ({ onSidebarOpen }: Props): JSX.Element => {
                         }}
                     >
                         <CustomButton href={'/'} text="Home" />
-                        <CustomButtonWithReload href={'/api/saas'} text="API" />
+                        {/* we turned off the API in EKS, so we can't do anything with this link */}
+                        {/* <CustomButtonWithReload href={'/api/saas'} text="API" /> */}
                         <CustomButton href={'/about'} text="About" />
                         <CustomButton href={'/pricing'} text="Pricing" />
                         {!featureFlagged && (
